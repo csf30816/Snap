@@ -220,7 +220,7 @@ IDE_Morph.prototype.init = function (isAutoFill) {
     this.projectName = '';
     this.projectNotes = '';
 
-    this.logoURL = this.resourceURL('https://cdn.scratch.mit.edu/scratchr2/static/__09065233d18c5dbbd527ec0c97aa7324__/images/logo_sm.png');
+    this.logoURL = this.resourceURL('Snap!.png');
     this.logo = null;
     this.controlBar = null;
     this.categories = null;
