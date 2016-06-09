@@ -2052,7 +2052,7 @@ IDE_Morph.prototype.snapMenu = function () {
         }
     );
     menu.addItem(
-        'Snap! website',
+        'Snap! Mod website',
         function () {
             window.open('http://snap.berkeley.edu/', 'SnapWebsite');
         }
