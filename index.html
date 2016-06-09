@@ -1,11 +1,44 @@
 <!DOCTYPE html>
-  <html>
+<html>
+
     <head>
-      <link rel="shortcut icon" href="http://" />
-      <title>Wound, the Scratch Mod</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>SnTL - Snap! Mod</title>
+        <link rel="shortcut icon" href="http://sitebuilder-en.runhosting.com/212606557377f5437030/SN.png">
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/morphic.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/widgets.js"></script>
+        <script type="text/javascript" src="blocks.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/threads.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/objects.js"></script>
+        <script type="text/javascript" src="code.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/paint.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/lists.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/byob.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/tables.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/xml.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/store.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/locale.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/cloud.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/sha512.js"></script>
+        <script type="text/javascript" src="https://snap.berkeley.edu/snapsource/FileSaver.min.js"></script>
+        <script type="text/javascript">
+            var world;
+            window.onload = function() {
+                world = new WorldMorph(document.getElementById('world'));
+                world.worldCanvas.focus();
+                new IDE_Morph().openIn(world);
+                loop();
+            };
+
+            function loop() {
+                requestAnimationFrame(loop);
+                world.doOneCycle();
+            }
+        </script>
     </head>
-  <body>
-      <style>
-      </style>
-  </body>
-  </html>
+
+    <body style="margin: 0;">
+        <canvas id="world" tabindex="1" style="position: absolute;"></canvas>
+    </body>
+
+</html>
