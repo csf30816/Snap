@@ -2044,13 +2044,13 @@ IDE_Morph.prototype.snapMenu = function () {
     menu = new MenuMorph(this);
     menu.addItem('About...', 'aboutSnap');
     menu.addLine();
-    menu.addItem(
+    /*menu.addItem(
         'Reference manual',
         function () {
             var url = myself.resourceURL('help', 'SnapManual.pdf');
             window.open(url, 'SnapReferenceManual');
         }
-    );
+    );*/
     menu.addItem(
         'Snap! Mod website',
         function () {
@@ -2061,7 +2061,7 @@ IDE_Morph.prototype.snapMenu = function () {
         'Download source',
         function () {
             window.open(
-                'http://snap.berkeley.edu/snapsource/snap.zip',
+                'http://github.com/csf30816/Wound/archive/master.zip',
                 'SnapSource'
             );
         }
