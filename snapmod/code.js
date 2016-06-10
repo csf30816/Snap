@@ -3482,7 +3482,7 @@ IDE_Morph.prototype.exportProjectSummary = function (useDropShadows) {
             'padding: 2px 1em 2px 1em;' +
             '}' +
             '.sprite {' +
-            'border: 1px solid black;' +
+            'border: 1px solid lightgrey;' +
             '}';
     }
     addNode('style', head, css);
