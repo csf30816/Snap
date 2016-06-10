@@ -6524,7 +6524,7 @@ TurtleIconMorph.uber = ToggleButtonMorph.prototype;
 
 // TurtleIconMorph settings
 
-TurtleIconMorph.prototype.thumbSize = new Point(80, 60);
+TurtleIconMorph.prototype.thumbSize = new Point(100, 80);
 TurtleIconMorph.prototype.labelShadowOffset = null;
 TurtleIconMorph.prototype.labelShadowColor = null;
 TurtleIconMorph.prototype.labelColor = new Color(255, 255, 255);
