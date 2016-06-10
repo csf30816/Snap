@@ -2054,7 +2054,7 @@ IDE_Morph.prototype.snapMenu = function () {
     menu.addItem(
         'Snap! Mod website',
         function () {
-            window.open('http://snap.berkeley.edu/', 'SnapWebsite');
+            window.open('http://csf30816.github.io/Snapmod', 'SnapWebsite');
         }
     );
     menu.addItem(
