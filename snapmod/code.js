@@ -115,8 +115,8 @@ IDE_Morph.prototype.setDefaultDesign = function () {
     IDE_Morph.prototype.sliderColor = SpriteMorph.prototype.sliderColor;
     IDE_Morph.prototype.buttonLabelColor = new Color(255, 255, 255);
     IDE_Morph.prototype.tabColors = [
-        IDE_Morph.prototype.groupColor.darker(25),
-        IDE_Morph.prototype.groupColor.darker(40),
+        IDE_Morph.prototype.groupColor.darker(15),
+        IDE_Morph.prototype.groupColor.darker(30),
         IDE_Morph.prototype.groupColor
     ];
     IDE_Morph.prototype.rotationStyleColors = IDE_Morph.prototype.tabColors;
