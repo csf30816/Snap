@@ -135,7 +135,7 @@ SpriteMorph.prototype.blockColor = {
     pen : new Color(99, 98, 0),
     control : new Color(0, 176, 0),
     sensing : new Color(190, 190, 255),
-    operators : new Color(107, 234, 113),
+    operators : new Color(123, 200, 123),
     variables : new Color(255, 143, 83),
     lists : new Color(255, 25, 24),
     other: new Color(180, 180, 180)
