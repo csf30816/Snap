@@ -7211,7 +7211,7 @@ InputSlotMorph.prototype.typesMenu = function () {
         list : ['list']
     };
     if (SpriteMorph.prototype.enableFirstClass) {
-        dict.sprite = ['sprite'];
+        dict.sprite = ['Sprite 1'];
     }
     dict.command = ['command'];
     dict.reporter = ['reporter'];
