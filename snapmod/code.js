@@ -861,7 +861,7 @@ IDE_Morph.prototype.createCategories = function () {
     this.categories.silentSetWidth(this.logo.width()); // width is fixed
 
     function addCategoryButton(category) {
-        var labelWidth = 20,
+        var labelWidth = 80,
             colors = [
                 myself.frameColor,
                 myself.frameColor.darker(20),
