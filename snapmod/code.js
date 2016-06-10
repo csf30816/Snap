@@ -864,7 +864,7 @@ IDE_Morph.prototype.createCategories = function () {
         var labelWidth = 75,
             colors = [
                 myself.frameColor,
-                myself.frameColor.darker(50),
+                myself.frameColor.darker(20),
                 SpriteMorph.prototype.blockColor[category]
             ],
             button;
