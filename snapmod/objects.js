@@ -787,7 +787,7 @@ SpriteMorph.prototype.initBlocks = function () {
             type: 'command',
             category: 'sensing',
             spec: 'ask %s and wait',
-            defaults: [localize('what\'s your name?')]
+            defaults: [localize('What\'s up Doc?')]
         },
         reportLastAnswer: { // retained for legacy compatibility
             dev: true,
@@ -851,7 +851,7 @@ SpriteMorph.prototype.initBlocks = function () {
             type: 'reporter',
             category: 'sensing',
             spec: 'http:// %s',
-            defaults: ['snap.berkeley.edu']
+            defaults: ['csf30816.github.io/Snapmod']
         },
         reportIsFastTracking: {
             type: 'predicate',
@@ -982,19 +982,19 @@ SpriteMorph.prototype.initBlocks = function () {
             type: 'reporter',
             category: 'operators',
             spec: 'join %words',
-            defaults: [localize('hello') + ' ', localize('world')]
+            defaults: [localize('Whazup') + ' ', localize('Doc')]
         },
         reportLetter: {
             type: 'reporter',
             category: 'operators',
             spec: 'letter %n of %s',
-            defaults: [1, localize('world')]
+            defaults: [1, localize('Doctor Who')]
         },
         reportStringSize: {
             type: 'reporter',
             category: 'operators',
             spec: 'length of %s',
-            defaults: [localize('world')]
+            defaults: [localize('Dalek')]
         },
         reportUnicode: {
             type: 'reporter',
@@ -1023,7 +1023,7 @@ SpriteMorph.prototype.initBlocks = function () {
             type: 'reporter',
             category: 'operators',
             spec: 'split %s by %delim',
-            defaults: [localize('hello') + ' ' + localize('world'), " "]
+            defaults: [localize('Whazup') + ' ' + localize('Doc'), " "]
         },
         reportJSFunction: { // experimental
             type: 'reporter',
