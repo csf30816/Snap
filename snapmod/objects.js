@@ -125,8 +125,7 @@ SpriteMorph.prototype.categories =
         'pen',
         'variables',
         'lists',
-        'other',
-        'html'
+        'other'
     ];
 
 SpriteMorph.prototype.blockColor = {
@@ -139,8 +138,7 @@ SpriteMorph.prototype.blockColor = {
     operators : new Color(98, 194, 19),
     variables : new Color(243, 118, 29),
     lists : new Color(217, 77, 17),
-    other: new Color(150, 150, 150),
-    html: new Color(0, 0, 0)
+    other: new Color(150, 150, 150)
 };
 
 SpriteMorph.prototype.paletteColor = new Color(55, 55, 55);
@@ -1153,12 +1151,6 @@ SpriteMorph.prototype.initBlocks = function () {
             spec: 'replace item %idx of %l with %s',
             defaults: [1, null, localize('thing')]
         },
-        solveGetHtml: {
-            type: 'reporter',
-            category: 'html',
-            spec: 'HTML %s',
-            defaults: [csf30816.github.io/Snapmod]
-        }
 
         // MAP - experimental
         reportMap: {
