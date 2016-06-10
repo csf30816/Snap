@@ -151,7 +151,7 @@ IDE_Morph.prototype.setFlatDesign = function () {
     IDE_Morph.prototype.sliderColor = SpriteMorph.prototype.sliderColor;
     IDE_Morph.prototype.buttonLabelColor = new Color(70, 70, 70);
     IDE_Morph.prototype.tabColors = [
-        IDE_Morph.prototype.groupColor.lighter(60),
+        IDE_Morph.prototype.groupColor.lighter(20),
         IDE_Morph.prototype.groupColor.darker(10),
         IDE_Morph.prototype.groupColor
     ];
