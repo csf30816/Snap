@@ -1,0 +1,131 @@
+
+<blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
+<block-definition s="safely try %'action' then if %'error' %'handler'" type="command" category="control">
+<header/>
+<code/>
+<inputs>
+<input type="%cs"/>
+<input type="%upvar"/>
+<input type="%cs"/>
+</inputs>
+<script>
+<custom-block s="let %upvar be %s">
+<l>reset</l>
+<block s="evaluate">
+<block s="reportJSFunction">
+<list>
+<l>proc</l>
+</list>
+<l>
+var oldHandleError = proc.handleError,
+ oldCatchingErrors = proc.isCatchingErrors;
+
+return function(){
+ proc.handleError = oldHandleError;
+ proc.isCatchingErrors = oldCatchingErrors;
+}
+</l>
+</block>
+<list/>
+</block>
+</custom-block>
+<block s="doCallCC">
+<block s="reifyScript">
+<script>
+<block s="doRun">
+<block s="reportJSFunction">
+<list>
+<l>reset</l>
+<l>action</l>
+<l>handler</l>
+<l>proc</l>
+</list>
+<l>
+proc.isCatchingErrors = true;
+proc.handleError = function(error, element){
+ reset();
+ proc.context = handler;
+ proc.context.variables.setVar("error", error);
+}
+
+try{
+ proc.evaluate(action, new List(), true);
+}
+catch(e){
+ proc.handleError(e, null);
+}
+</l>
+</block>
+<list>
+<block var="reset"/>
+<block var="action"/>
+<block s="reifyScript">
+<script>
+<block s="doRun">
+<block s="reifyScript">
+<script>
+<block s="doRun">
+<block var="handler"/>
+<list/>
+</block>
+<block s="doRun">
+<block var="return"/>
+<list/>
+</block>
+</script>
+<list/>
+</block>
+<list/>
+</block>
+</script>
+<list/>
+</block>
+</list>
+</block>
+</script>
+<list>
+<l>return</l>
+</list>
+</block>
+</block>
+<block s="doRun">
+<block var="reset"/>
+<list/>
+</block>
+</script>
+</block-definition>
+<block-definition s="error %'msg'" type="command" category="control">
+<header/>
+<code/>
+<inputs>
+<input type="%txt"/>
+</inputs>
+<script>
+<block s="doRun">
+<block s="reportJSFunction">
+<list>
+<l>msg</l>
+</list>
+<l>throw new Error(msg);</l>
+</block>
+<list>
+<block var="msg"/>
+</list>
+</block>
+</script>
+</block-definition>
+<block-definition s="let %'var' be %'val'" type="command" category="other">
+<header/>
+<code/>
+<inputs>
+<input type="%upvar"/>
+<input type="%s"/>
+</inputs>
+<script>
+<block s="doSetVar">
+<l>var</l>
+<block var="val"/>
+</block>
+</script>
+</block-definition>
+</blocks>
