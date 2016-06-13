@@ -1,6 +1,6 @@
 <?php // index.php
 require_once 'openid.php';
-$openid = new LightOpenID("my-domain.com");
+$openid = new LightOpenID("csf30816.github.io/Snapmod");
 
 $openid->identity = 'https://www.google.com/accounts/o8/id';
 $openid->required = array(
@@ -8,7 +8,7 @@ $openid->required = array(
   'namePerson/last',
   'contact/email',
 );
-$openid->returnUrl = 'http://my-domain.com/login.php'
+$openid->returnUrl = 'http://csf30816.github.io/Snapmod/login.php'
 ?>
 
 <a href="<?php echo $openid->authUrl() ?>">Login with Google</a>
