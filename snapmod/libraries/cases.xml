@@ -1,0 +1,175 @@
+<blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
+<block-definition s="cases: if %'test' then %'result' %'more'" type="command" category="control">
+<header/>
+<code/>
+<inputs>
+<input type="%b"/>
+<input type="%cs"/>
+<input type="%mult%boolUE"/>
+</inputs>
+<script>
+<block s="doIfElse">
+<block var="test"/>
+<script>
+<block s="doRun">
+<block var="result"/>
+<list/>
+</block>
+</script>
+<script>
+<custom-block s="catch %upvar %cs">
+<l>tag</l>
+<script>
+<custom-block s="for each %upvar of %l %cs">
+<l>item</l>
+<block var="more"/>
+<script>
+<block s="doIf">
+<block s="evaluate">
+<block var="item"/>
+<list/>
+</block>
+<script>
+<custom-block s="throw %s">
+<block var="tag"/>
+</custom-block>
+</script>
+</block>
+</script>
+</custom-block>
+</script>
+</custom-block>
+<block s="doHideVar">
+<l>test</l>
+</block>
+</script>
+</block>
+</script>
+</block-definition>
+<block-definition s="catch %'tag' %'action'" type="command" category="control">
+<header/>
+<code/>
+<inputs>
+<input type="%upvar"/>
+<input type="%cs"/>
+</inputs>
+<script>
+<block s="doCallCC">
+<block s="reifyScript">
+<script>
+<block s="doSetVar">
+<l>tag</l>
+<block var="cont"/>
+</block>
+<block s="doRun">
+<block var="action"/>
+<list/>
+</block>
+</script>
+<list>
+<l>cont</l>
+</list>
+</block>
+</block>
+</script>
+</block-definition>
+<block-definition s="throw %'cont'" type="command" category="control">
+<header/>
+<code/>
+<inputs>
+<input type="%s">catchtag</input>
+</inputs>
+<script>
+<block s="doRun">
+<block var="cont"/>
+<list/>
+</block>
+</script>
+</block-definition>
+<block-definition s="for each %'item' of %'data' %'action'" type="command" category="lists">
+<header/>
+<code/>
+<inputs>
+<input type="%upvar"/>
+<input type="%l"/>
+<input type="%cs"/>
+</inputs>
+<script>
+<block s="doUntil">
+<block s="reportEquals">
+<block var="data"/>
+<block s="reportNewList">
+<list/>
+</block>
+</block>
+<script>
+<block s="doSetVar">
+<l>item</l>
+<block s="reportListItem">
+<l>1</l>
+<block var="data"/>
+</block>
+</block>
+<block s="doRun">
+<block var="action"/>
+<list>
+<block s="reportListItem">
+<l>1</l>
+<block var="data"/>
+</block>
+</list>
+</block>
+<block s="doSetVar">
+<l>data</l>
+<block s="reportCDR">
+<block var="data"/>
+</block>
+</block>
+</script>
+</block>
+</script>
+</block-definition>
+<block-definition s="else if %'test' then %'action'" type="predicate" category="control">
+<header/>
+<code/>
+<inputs>
+<input type="%b"/>
+<input type="%cs"/>
+</inputs>
+<script>
+<block s="doIfElse">
+<block var="test"/>
+<script>
+<block s="doRun">
+<block var="action"/>
+<list/>
+</block>
+<block s="doReport">
+<block s="reportTrue"/>
+</block>
+</script>
+<script>
+<block s="doReport">
+<block s="reportFalse"/>
+</block>
+</script>
+</block>
+</script>
+</block-definition>
+<block-definition s="else %'action'" type="predicate" category="control">
+<header/>
+<code/>
+<inputs>
+<input type="%cs"/>
+</inputs>
+<script>
+<block s="doRun">
+<block var="action"/>
+<list/>
+</block>
+<block s="doReport">
+<block s="reportTrue"/>
+</block>
+</script>
+</block-definition>
+</blocks>
