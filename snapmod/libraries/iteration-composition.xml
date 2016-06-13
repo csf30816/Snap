@@ -1,0 +1,426 @@
+
+<blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
+<block-definition s="cascade %'num' times %'function' %'init' %'#'" type="reporter" category="control">
+<comment x="0" y="0" w="138" collapsed="false">
+Call f(f(f(...(f(x))))) n times where the three input slots are n, f, and x from left to right. The # variable can be used inside f to represent how many times f has been called.
+</comment>
+<header/>
+<code/>
+<inputs>
+<input type="%n"/>
+<input type="%repRing"/>
+<input type="%s"/>
+<input type="%upvar"/>
+</inputs>
+<script>
+<block s="doDeclareVariables">
+<list>
+<l>result</l>
+</list>
+</block>
+<block s="doSetVar">
+<l>result</l>
+<block var="init"/>
+</block>
+<block s="doSetVar">
+<l>#</l>
+<l>0</l>
+</block>
+<block s="doRepeat">
+<block var="num"/>
+<script>
+<block s="doChangeVar">
+<l>#</l>
+<l>1</l>
+</block>
+<block s="doSetVar">
+<l>result</l>
+<block s="evaluate">
+<block var="function"/>
+<list>
+<block var="result"/>
+</list>
+</block>
+</block>
+</script>
+</block>
+<block s="doReport">
+<block var="result"/>
+</block>
+</script>
+</block-definition>
+<block-definition s="cascade until %'pred' %'function' %'init' %'#'" type="reporter" category="control">
+<comment x="0" y="0" w="90" collapsed="false">
+Call f(f(f(...(f(x))))) until condition is true, where the three input slots are condition, f, and x from left to right. The # variable can be used inside f or condition to indicate how many times f has been called.
+</comment>
+<header/>
+<code/>
+<inputs>
+<input type="%predRing"/>
+<input type="%repRing"/>
+<input type="%s"/>
+<input type="%upvar"/>
+</inputs>
+<script>
+<block s="doDeclareVariables">
+<list>
+<l>result</l>
+</list>
+</block>
+<block s="doSetVar">
+<l>result</l>
+<block var="init"/>
+</block>
+<block s="doSetVar">
+<l>#</l>
+<l>0</l>
+</block>
+<block s="doUntil">
+<block s="evaluate">
+<block var="pred"/>
+<list>
+<block var="result"/>
+</list>
+</block>
+<script>
+<block s="doChangeVar">
+<l>#</l>
+<l>1</l>
+</block>
+<block s="doSetVar">
+<l>result</l>
+<block s="evaluate">
+<block var="function"/>
+<list>
+<block var="result"/>
+</list>
+</block>
+</block>
+</script>
+</block>
+<block s="doReport">
+<block var="result"/>
+</block>
+</script>
+</block-definition>
+<block-definition s="compose %'f' %'g'" type="reporter" category="control">
+<comment x="0" y="0" w="90" collapsed="false">
+Returns the function f(g(x)) where f and g are the two inputs.
+</comment>
+<header/>
+<code/>
+<inputs>
+<input type="%repRing"/>
+<input type="%repRing"/>
+</inputs>
+<script>
+<block s="doReport">
+<block s="reifyReporter">
+<autolambda>
+<block s="evaluate">
+<block var="f"/>
+<list>
+<block s="evaluate">
+<block var="g"/>
+<list>
+<l/>
+</list>
+</block>
+</list>
+</block>
+</autolambda>
+<list/>
+</block>
+</block>
+</script>
+</block-definition>
+<block-definition s="repeat %'action' until %'pred'" type="command" category="control">
+<comment x="0" y="0" w="90" collapsed="false">
+Like the built-in REPEAT UNTIL block, except that the ending condition is not tested until the script has been run the first time. So the script is run at least once.
+</comment>
+<header/>
+<code/>
+<inputs>
+<input type="%cs"/>
+<input type="%boolUE"/>
+</inputs>
+<script>
+<block s="doRun">
+<block var="action"/>
+<list/>
+</block>
+<block s="doUntil">
+<block s="evaluate">
+<block var="pred"/>
+<list/>
+</block>
+<script>
+<block s="doRun">
+<block var="action"/>
+<list/>
+</block>
+</script>
+</block>
+</script>
+</block-definition>
+<block-definition s="repeat %'action' while %'pred'" type="command" category="control">
+<comment x="0" y="0" w="90" collapsed="false">
+Run the script repeatedly, as long as the given condition is true. Runs the script at least once before testing the condition.
+</comment>
+<header/>
+<code/>
+<inputs>
+<input type="%cs"/>
+<input type="%boolUE"/>
+</inputs>
+<script>
+<block s="doRun">
+<block var="action"/>
+<list/>
+</block>
+<block s="doUntil">
+<block s="reportNot">
+<block s="evaluate">
+<block var="pred"/>
+<list/>
+</block>
+</block>
+<script>
+<block s="doRun">
+<block var="action"/>
+<list/>
+</block>
+</script>
+</block>
+</script>
+</block-definition>
+<block-definition s="repeat while %'pred' %'action'" type="command" category="control">
+<comment x="0" y="0" w="90" collapsed="false">
+Runs the script repeatedly, as long as the condition is true. Tests the condition before the first time the script is run. Like the built in REPEAT UNTIL except that in this block the condition must be true, not false.
+</comment>
+<header/>
+<code/>
+<inputs>
+<input type="%boolUE"/>
+<input type="%cs"/>
+</inputs>
+<script>
+<block s="doUntil">
+<block s="reportNot">
+<block s="evaluate">
+<block var="pred"/>
+<list/>
+</block>
+</block>
+<script>
+<block s="doRun">
+<block var="action"/>
+<list/>
+</block>
+</script>
+</block>
+</script>
+</block-definition>
+<block-definition s="repeat %'num' %'#' %'action'" type="command" category="control">
+<comment x="0" y="0" w="171" collapsed="false">
+Runs the script the specified number of times, like the built-in REPEAT block, but this one provides the # variable that can be used inside the script. Try
+REPEAT (200)
+ MOVE (#) STEPS
+ RIGHT 92
+with the pen down.
+</comment>
+<header/>
+<code/>
+<inputs>
+<input type="%n"/>
+<input type="%upvar"/>
+<input type="%cs"/>
+</inputs>
+<script>
+<block s="doSetVar">
+<l>#</l>
+<l>0</l>
+</block>
+<block s="doRepeat">
+<block var="num"/>
+<script>
+<block s="doChangeVar">
+<l>#</l>
+<l>1</l>
+</block>
+<block s="doRun">
+<block var="action"/>
+<list/>
+</block>
+</script>
+</block>
+</script>
+</block-definition>
+<block-definition s="for %'i' = %'start' step %'step' to %'end' %'action'" type="command" category="control">
+<header/>
+<code/>
+<inputs>
+<input type="%upvar"/>
+<input type="%n">1</input>
+<input type="%n">1</input>
+<input type="%n">10</input>
+<input type="%cs"/>
+</inputs>
+<script>
+<block s="doDeclareVariables">
+<list>
+<l>test</l>
+</list>
+</block>
+<block s="doSetVar">
+<l>i</l>
+<block var="start"/>
+</block>
+<block s="doIfElse">
+<block s="reportLessThan">
+<block var="step"/>
+<l>0</l>
+</block>
+<script>
+<block s="doSetVar">
+<l>test</l>
+<block s="reifyPredicate">
+<autolambda>
+<block s="reportLessThan">
+<block var="i"/>
+<block var="end"/>
+</block>
+</autolambda>
+<list/>
+</block>
+</block>
+</script>
+<script>
+<block s="doSetVar">
+<l>test</l>
+<block s="reifyPredicate">
+<autolambda>
+<block s="reportGreaterThan">
+<block var="i"/>
+<block var="end"/>
+</block>
+</autolambda>
+<list/>
+</block>
+</block>
+</script>
+</block>
+<block s="doUntil">
+<block s="evaluate">
+<block var="test"/>
+<list/>
+</block>
+<script>
+<block s="doRun">
+<block var="action"/>
+<list/>
+</block>
+<block s="doChangeVar">
+<l>i</l>
+<block var="step"/>
+</block>
+</script>
+</block>
+</script>
+</block-definition>
+<block-definition s="let %'a' be %'val' in %'loop' %'body'" type="command" category="control">
+<comment w="238.66666666666666" collapsed="false">
+Provides LOOP as a function of one input that runs
+the body of the LET with A set to the function input,
+so the body can run itself recursively.
+See COPY block in Variables for an example of use.
+</comment>
+<header/>
+<code/>
+<inputs>
+<input type="%upvar"/>
+<input type="%s"/>
+<input type="%upvar"/>
+<input type="%cs"/>
+</inputs>
+<script>
+<block s="doSetVar">
+<l>a</l>
+<block var="val"/>
+</block>
+<block s="doSetVar">
+<l>loop</l>
+<block s="reifyScript">
+<script>
+<block s="doSetVar">
+<l>a</l>
+<block var="new value"/>
+</block>
+<block s="doRun">
+<block var="body"/>
+<list>
+<block var="a"/>
+</list>
+</block>
+</script>
+<list>
+<l>new value</l>
+</list>
+</block>
+</block>
+<block s="doRun">
+<block var="loop"/>
+<list>
+<block var="a"/>
+</list>
+</block>
+</script>
+</block-definition>
+<block-definition s="copy %'value' %'n' times" type="reporter" category="lists">
+<comment w="133.33333333333334" collapsed="false">
+copy VALUE N times
+reports a list containing N (identical) copies of VALUE
+</comment>
+<header/>
+<code/>
+<inputs>
+<input type="%s"/>
+<input type="%n"/>
+</inputs>
+<script>
+<custom-block s="let %upvar be %s in %upvar %cs">
+<l>result</l>
+<block s="reportNewList">
+<list/>
+</block>
+<l>loop</l>
+<script>
+<block s="doChangeVar">
+<l>n</l>
+<l>-1</l>
+</block>
+<block s="doIf">
+<block s="reportLessThan">
+<block var="n"/>
+<l>0</l>
+</block>
+<script>
+<block s="doReport">
+<block var="result"/>
+</block>
+</script>
+</block>
+<block s="doRun">
+<block var="loop"/>
+<list>
+<block s="reportCONS">
+<block var="value"/>
+<block var="result"/>
+</block>
+</list>
+</block>
+</script>
+</custom-block>
+</script>
+</block-definition>
+</blocks>
