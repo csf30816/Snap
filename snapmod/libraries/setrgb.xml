@@ -1,0 +1,58 @@
+<blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
+<block-definition s="set pen color to r: %'r' g: %'g' b: %'b'" type="command" category="pen">
+<header/>
+<code/>
+<inputs>
+<input type="%n">255</input>
+<input type="%n">0</input>
+<input type="%n">0</input>
+</inputs>
+<script>
+<block s="doRun">
+<block s="reportJSFunction">
+<list>
+<l>r</l>
+<l>g</l>
+<l>b</l>
+</list>
+<l>this.setColor(new Color(r, g, b));</l>
+</block>
+<list>
+<block var="r"/>
+<block var="g"/>
+<block var="b"/>
+</list>
+</block>
+</script>
+</block-definition>
+<block-definition s="set pen color to h: %'h' s: %'s' v: %'v'" type="command" category="pen">
+<header/>
+<code/>
+<inputs>
+<input type="%n">0.3</input>
+<input type="%n">0.7</input>
+<input type="%n">0.6</input>
+</inputs>
+<script>
+<block s="doRun">
+<block s="reportJSFunction">
+<list>
+<l>h</l>
+<l>s</l>
+<l>v</l>
+</list>
+<l>
+var col = new Color();
+col.set_hsv(h, s, v);
+this.setColor(col);
+</l>
+</block>
+<list>
+<block var="h"/>
+<block var="s"/>
+<block var="v"/>
+</list>
+</block>
+</script>
+</block-definition>
+</blocks>
