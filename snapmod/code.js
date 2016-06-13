@@ -2106,7 +2106,7 @@ IDE_Morph.prototype.cloudMenu = function () {
         menu.addLine();
     }
     if (!SnapCloud.username) {
-        menu.addItem(
+       /* menu.addItem(
             'Login...',
             'initializeCloud'
         );
@@ -2117,6 +2117,9 @@ IDE_Morph.prototype.cloudMenu = function () {
         menu.addItem(
             'Reset Password...',
             'resetCloudPassword'
+        );*/
+        menu.addItem(
+            'Login not working'
         );
     } else {
         menu.addItem(
