@@ -102,7 +102,7 @@ Cloud.prototype.signup = function (
         );
         request.setRequestHeader(
             "Content-Type",
-            "application/x-www-form-urlencoded"
+            "https://snap.apps.miosoft.com/SnapCloud/application/x-www-form-urlencoded"
         );
         request.withCredentials = true;
         request.onreadystatechange = function () {
@@ -264,7 +264,7 @@ Cloud.prototype.login = function (
         );
         request.setRequestHeader(
             "Content-Type",
-            "application/json; charset=utf-8"
+            "https://snap.apps.miosoft.com/SnapCloud/application/json; charset=utf-8"
         );
         // glue this session to a route:
         request.setRequestHeader('SESSIONGLUE', this.route);
