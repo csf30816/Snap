@@ -1,3 +1,4 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
 <blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
 <block-definition s="%'method' url: %'url' send: %'payload' headers: %'headers'" type="reporter" category="sensing">
 <header/>
@@ -51,24 +52,6 @@ proc.pushContext();
 <block var="url"/>
 <block var="payload"/>
 <block var="headers"/>
-</list>
-</block>
-</block>
-</script>
-</block-definition>
-<block-definition s="key: %'key' value: %'value'" type="reporter" category="operators">
-<header/>
-<code/>
-<inputs>
-<input type="%s"/>
-<input type="%s"/>
-</inputs>
-<script>
-<block s="doReport">
-<block s="reportNewList">
-<list>
-<block var="key"/>
-<block var="value"/>
 </list>
 </block>
 </block>
