@@ -1055,14 +1055,14 @@ stage.changed();
 </l>
 </variable>
 <variable name="Data Retrival">
-<l>9.074870499625968</l>
+<l></l>
 </variable>
 <variable name="Randomcalc">
-<l>2025.770981893846</l>
+<l></l>
 </variable>
 <variable name="Alphabet">
 <l>
-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+{}|:">?<-=[]\;',./`
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 </l>
 </variable>
 </variables>
