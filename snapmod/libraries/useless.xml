@@ -1,0 +1,124 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
+<block-definition s="Recieve Data of %'URL'" type="command" category="variables">
+<header/>
+<code/>
+<inputs>
+<input type="%s"/>
+</inputs>
+<script>
+<custom-block s="Store Data %s">
+<block s="reportJoinWords">
+<list>
+<block var="URL"/>
+<block s="reportUnicodeAsLetter">
+<block s="reportRandom">
+<l>1</l>
+<l>100</l>
+</block>
+</block>
+<block s="reportUnicodeAsLetter">
+<block s="reportRandom">
+<l>1</l>
+<l>95</l>
+</block>
+</block>
+<block s="reportUnicodeAsLetter">
+<block s="reportRandom">
+<l>1</l>
+<l>69</l>
+</block>
+</block>
+</list>
+</block>
+</custom-block>
+<block s="doReport">
+<block s="reportQuotient">
+<block s="reportMonadic">
+<l>
+<option>sqrt</option>
+</l>
+<block s="reportJoinWords">
+<list>
+<block s="reportRandom">
+<l>1</l>
+<l>10</l>
+</block>
+<block s="reportRandom">
+<l>1</l>
+<l>2</l>
+</block>
+</list>
+</block>
+</block>
+<block s="reportRandom">
+<block s="reportRandom">
+<l>1</l>
+<l>10</l>
+</block>
+<block s="reportProduct">
+<block s="reportRandom">
+<l>1</l>
+<l>10</l>
+</block>
+<l>2</l>
+</block>
+</block>
+</block>
+</block>
+</script>
+</block-definition>
+<block-definition s="Store Data %'Data'" type="command" category="variables">
+<header/>
+<code/>
+<inputs>
+<input type="%s"/>
+</inputs>
+<script>
+<block s="doAddToList">
+<block var="Data"/>
+<block s="reportNewList">
+<list>
+<block s="reportJoinWords">
+<list>
+<block s="reportRandom">
+<l>1</l>
+<l>100</l>
+</block>
+<block s="reportUnicodeAsLetter">
+<block s="reportRandom">
+<l>1</l>
+<l>100</l>
+</block>
+</block>
+<l>~0~</l>
+<block s="reportUnicode">
+<block s="reportLetter">
+<block s="reportRandom">
+<l>1</l>
+<block s="reportStringSize">
+<block var="Alphabet"/>
+</block>
+</block>
+<block var="Alphabet"/>
+</block>
+</block>
+<l>123456789321</l>
+</list>
+</block>
+</list>
+</block>
+</block>
+</script>
+<scripts>
+<script x="229.000001" y="369.200002">
+<block s="reportListItem">
+<l>
+<option>any</option>
+</l>
+<l/>
+</block>
+</script>
+</scripts>
+</block-definition>
+</blocks>
